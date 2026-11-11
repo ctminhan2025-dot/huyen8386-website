@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>huyen8386.vn — Chăm sóc sức khỏe chủ động</title>
+<meta name="description" content="huyen8386.vn — Chăm sóc sức khỏe chủ động: dinh dưỡng, giấc ngủ, vận động, tâm trí và tầm soát định kỳ. Đồng hành cùng Phạm Huyền.">
+<meta property="og:title" content="huyen8386.vn — Chăm sóc sức khỏe chủ động">
+<meta property="og:description" content="Đừng đợi bệnh mới chăm sóc. Đồng hành cùng Phạm Huyền xây lối sống khỏe mỗi ngày.">
+<meta property="og:image" content="https://huyen8386.vn/founder.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06120C">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap">
+<style>
+body{margin:0;background:#06120C}
+*{box-sizing:border-box}
+a{color:#8EF0B5;text-decoration:none}a:hover{color:#C8F560}
+html{scroll-behavior:smooth}
+
+/* ---------- NỀN ĐỘNG ---------- */
+@keyframes floatA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,60px) scale(1.15)}}
+@keyframes floatB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-90px,40px) scale(.9)}}
+@keyframes floatC{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-70px)}}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;opacity:.55}
+.orbA{animation:floatA 16s ease-in-out infinite}
+.orbB{animation:floatB 19s ease-in-out infinite}
+.orbC{animation:floatC 22s ease-in-out infinite}
+.gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 75%)}
+
+/* ---------- HIỆU ỨNG CHỮ ---------- */
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.shine{background:linear-gradient(90deg,#22D07A,#C8F560,#2DD4BF,#22D07A);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(60%) rotate(4deg);filter:blur(8px)}100%{opacity:1;transform:none;filter:blur(0)}}
+.rise{display:inline-block;opacity:0;animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rotateWords{0%,18%{transform:translateY(0)}25%,43%{transform:translateY(-25%)}50%,68%{transform:translateY(-50%)}75%,93%{transform:translateY(-75%)}100%{transform:translateY(0)}}
+.rotWrap{display:inline-block;height:1.12em;overflow:hidden;vertical-align:bottom}
+.rotList{display:flex;flex-direction:column;animation:rotateWords 10s cubic-bezier(.7,0,.3,1) infinite}
+.rotList span{height:1.12em;line-height:1.12em;white-space:nowrap}
+@keyframes blink{50%{opacity:0}}
+.caret{display:inline-block;width:.08em;height:.9em;background:#C8F560;margin-left:.06em;vertical-align:-.05em;animation:blink 1s steps(1) infinite}
+.outline{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35)}
+
+/* ---------- MARQUEE ---------- */
+@keyframes marq{to{transform:translateX(-50%)}}
+.marq{display:flex;width:max-content;animation:marq 28s linear infinite}
+.marqBox:hover .marq{animation-play-state:paused}
+
+/* ---------- NHỊP TIM / VÒNG ---------- */
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes beat{0%{stroke-dashoffset:900}60%,100%{stroke-dashoffset:0}}
+.ekg{stroke-dasharray:900;stroke-dashoffset:900;animation:beat 3.2s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{transform-origin:50% 50%;animation:spin 40s linear infinite}
+.spinR{transform-origin:50% 50%;animation:spin 26s linear infinite reverse}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+.pulse{transform-origin:50% 50%;animation:pulse 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.bob1{animation:bob 6s ease-in-out infinite}
+.bob2{animation:bob 7s ease-in-out infinite .8s}
+.bob3{animation:bob 8s ease-in-out infinite 1.6s}
+@keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.ping{position:absolute;inset:0;border-radius:50%;background:#3DDC84;animation:ping 1.8s ease-out infinite}
+
+/* ---------- DI CHUỘT ---------- */
+.btn{position:relative;overflow:hidden;display:inline-flex;white-space:nowrap;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;border:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn:hover::after{left:140%}
+.btnP{background:#22D07A;color:#05160D}
+.btnP:hover{color:#05160D;transform:translateY(-3px) scale(1.03);box-shadow:0 18px 50px -10px rgba(34,208,122,.75)}
+.btnG{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btnG:hover{color:#fff;background:rgba(255,255,255,.12);transform:translateY(-3px)}
+.btn svg{transition:transform .35s}
+.btn:hover svg{transform:translateX(5px)}
+.nl{position:relative;color:rgba(255,255,255,.75);font-size:15px;font-weight:500;padding:6px 0}
+.nl::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:#C8F560;transform:scaleX(0);transform-origin:right;transition:transform .4s}
+.nl:hover{color:#fff}.nl:hover::after{transform:scaleX(1);transform-origin:left}
+.card{position:relative;border-radius:28px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .5s,background .5s,box-shadow .5s;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotateX(2deg);border-color:rgba(200,245,96,.45);background:rgba(255,255,255,.06);box-shadow:0 30px 80px -30px rgba(34,208,122,.45)}
+.card .ico{transition:transform .6s cubic-bezier(.2,.8,.2,1),background .5s}
+.card:hover .ico{transform:rotate(-12deg) scale(1.12);background:#C8F560;color:#05160D}
+.card .big{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card:hover .big{transform:scale(1.15) rotate(-6deg)}
+.card .more{transition:gap .35s,color .35s}
+.card:hover .more{gap:14px;color:#C8F560}
+.step{transition:background .5s,border-color .5s}
+.step:hover{background:rgba(34,208,122,.08);border-color:rgba(34,208,122,.5)}
+.step:hover .num{color:#22D07A;-webkit-text-stroke:0}
+.num{transition:color .4s}
+.tier{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.tier:hover{transform:translateY(-10px);box-shadow:0 40px 90px -30px rgba(45,212,191,.45)}
+.hab{display:flex;align-items:center;gap:14px;width:100%;min-height:60px;padding:14px 18px;border-radius:18px;font:inherit;font-size:16px;text-align:left;cursor:pointer;transition:all .35s;color:#fff;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.hab:hover{border-color:rgba(200,245,96,.6);transform:translateX(6px)}
+.habOn{background:rgba(200,245,96,.12);border-color:#C8F560}
+.tick{flex:none;width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.35);transition:all .3s}
+.habOn .tick{background:#C8F560;border-color:#C8F560;color:#05160D}
+.fld{width:100%;min-height:54px;padding:0 18px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);color:#fff;font:inherit;font-size:16px;transition:border-color .3s,box-shadow .3s}
+.fld:focus{outline:none;border-color:#C8F560;box-shadow:0 0 0 4px rgba(200,245,96,.18)}
+.fld::placeholder{color:rgba(255,255,255,.45)}
+details summary{list-style:none;cursor:pointer}
+details summary::-webkit-details-marker{display:none}
+details .pl{transition:transform .4s}
+details[open] .pl{transform:rotate(45deg)}
+details{transition:background .4s,border-color .4s}
+details:hover{border-color:rgba(255,255,255,.25)}
+.cursorGlow{position:absolute;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(60,230,140,.16),transparent 65%);transition:opacity .4s;z-index:1}
+
+.photo img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .8s}
+.photo:hover img{transform:scale(1.07);filter:saturate(1.12) brightness(1.04)}
+.heroCut{transition:transform 1s cubic-bezier(.2,.8,.2,1),filter .8s;transform-origin:50% 100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+.heroCut:hover{transform:scale(1.03);filter:drop-shadow(0 30px 50px rgba(34,208,122,.45)) brightness(1.04)}
+.pframe{position:relative;padding:3px;overflow:hidden;isolation:isolate}
+.pframe::before{content:"";position:absolute;left:50%;top:50%;width:200%;height:200%;margin:-100% 0 0 -100%;background:conic-gradient(from 0deg,#22D07A,#C8F560,#2DD4BF,rgba(34,208,122,0) 55%,rgba(34,208,122,0) 75%,#22D07A);animation:spin 7s linear infinite;z-index:-1}
+.pinner{position:relative;width:100%;height:100%;overflow:hidden;background:#0C1F15}
+.pinner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(6,18,12,.55));pointer-events:none}
+.pinner::before{content:"";position:absolute;top:0;left:-130%;width:60%;height:100%;z-index:2;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left 1.1s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.pframe:hover .pinner::before{left:150%}
+.pinner img{transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .8s}
+.pframe:hover .pinner img{transform:scale(1.06);filter:saturate(1.1) brightness(1.04)}
+.pframe{transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
+.pframe:hover{transform:translateY(-6px)}
+/* ---------- CUỘN HIỆN DẦN ---------- */
+@supports (animation-timeline: view()){
+@keyframes reveal{from{opacity:0;transform:translateY(70px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+.rv{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+}
+
+/* ---------- ĐIỆN THOẠI ---------- */
+@media (max-width:900px){
+.rs{grid-template-columns:minmax(0,1fr) !important;flex-direction:column !important}
+.hideM{display:none !important}
+.padM{padding-left:20px !important;padding-right:20px !important}
+.h1M{font-size:44px !important}
+.h2M{font-size:34px !important}
+.heroR{height:auto !important;padding:10px 0 20px}
+.heroR .bob1,.heroR .bob2,.heroR .bob3{display:none !important}
+.heroR .pframe{width:100% !important;max-width:400px;height:480px !important}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}.rise{opacity:1}}
+</style>
+</head>
+<body>
+<div id="root" style="position: relative; width: 100%; min-height: 900px; overflow: hidden; background: #06120C; color: #FFFFFF; font-family: 'Be Vietnam Pro', system-ui, sans-serif; -webkit-font-smoothing: antialiased">
+<div aria-hidden="true" class="cursorGlow" id="glow" style="left: -600px; top: -600px; opacity: 0"></div>
+<!-- ================= NAV ================= -->
+<header class="padM" style="position: relative; z-index: 20; padding: 22px 40px 0">
+<nav aria-label="Điều hướng chính" style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 14px 12px 22px; border-radius: 999px; background: rgba(8,26,16,.6); border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(16px)">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 800; font-size: 19px; letter-spacing: -0.02em">
+<span style="position: relative; width: 34px; height: 34px; border-radius: 11px; background: #22D07A; display: flex; align-items: center; justify-content: center; color: #05160D">
+<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="20"><path d="M3 12h4l3-7 4 14 3-7h4"></path></svg>
+</span>
+<span style="font-size: 22px; font-weight: 900; letter-spacing: -0.03em">huyen8386<span class="shine">.vn</span></span>
+</a>
+<div class="hideM" style="display: flex; gap: 32px">
+<a class="nl" href="#nguoi-dong-hanh">Về Huyền</a>
+<a class="nl" href="#phuong-phap">Phương pháp</a>
+<a class="nl" href="#tru-cot">5 trụ cột</a>
+<a class="nl" href="#kiem-tra">Tự kiểm tra</a>
+<a class="nl" href="#chuong-trinh">Chương trình</a>
+<a class="nl" href="#cong-dong">Cộng đồng</a>
+<a class="nl" href="#kien-thuc">Kiến thức</a>
+</div>
+<a class="btn btnP" href="#dang-ky" style="min-height: 46px; font-size: 15px; padding: 0 20px">Đăng ký<span class="hideM"> tư vấn</span></a>
+</nav>
+</header>
+<!-- ================= HERO ================= -->
+<section class="padM" id="top" style="position: relative; padding: 90px 40px 110px">
+<div aria-hidden="true" class="orb orbA" style="width: 520px; height: 520px; background: #22D07A; top: -120px; left: -140px"></div>
+<div aria-hidden="true" class="orb orbB" style="width: 460px; height: 460px; background: #2DD4BF; top: 160px; right: -120px; opacity: .4"></div>
+<div aria-hidden="true" class="orb orbC" style="width: 380px; height: 380px; background: #C8F560; bottom: -160px; left: 38%; opacity: .3"></div>
+<div aria-hidden="true" class="gridbg"></div>
+<div class="rs" style="position: relative; z-index: 2; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 30px">
+<div class="rise" style="animation-delay: .05s; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); font-size: 14px; font-weight: 500; color: rgba(255,255,255,.85)">
+<span style="position: relative; width: 10px; height: 10px"><span class="ping"></span><span style="position: absolute; inset: 0; border-radius: 50%; background: #3DDC84"></span></span>
+<strong style="font-weight: 800; color: #C8F560">huyen8386.vn</strong> · Chăm sóc sức khỏe chủ động
+        </div>
+<h1 class="h1M" style="margin: 0; font-size: 78px; line-height: 1.04; font-weight: 800; letter-spacing: -0.035em">
+<span class="rise" style="animation-delay: .15s">Đừng đợi bệnh</span><br/>
+<span class="rise" style="animation-delay: .3s">mới chăm sóc.</span><br/>
+<span class="rise" style="animation-delay: .45s">Hãy</span>
+<span class="rotWrap rise" style="animation-delay: .6s"><span class="rotList shine"><span>ngủ sâu</span><span>ăn đúng</span><span>vận động</span><span>sống khỏe</span></span></span><span aria-hidden="true" class="caret"></span>
+</h1>
+<p class="rise" style="animation-delay: .8s; margin: 0; max-width: 560px; font-size: 19px; line-height: 1.65; color: rgba(255,255,255,.72); font-weight: 400">
+          Hiểu cơ thể mình qua những chỉ số đơn giản, xây thói quen nhỏ mỗi ngày, có người đồng hành đến khi những thay đổi đó thành nếp sống.
+        </p>
+<div class="rise" style="animation-delay: .95s; display: flex; flex-wrap: wrap; gap: 14px">
+<a class="btn btnP" href="#kiem-tra">Kiểm tra sức khỏe miễn phí
+            <svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="btn btnG" href="#phuong-phap">Xem phương pháp</a>
+</div>
+<div class="rise" style="animation-delay: 1.1s; display: flex; flex-wrap: wrap; gap: 36px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1)">
+<div><div style="font-size: 30px; font-weight: 800; color: #C8F560">[SỐ]+</div><div style="font-size: 14px; color: rgba(255,255,255,.62)">học viên đã đồng hành</div></div>
+<div><div style="font-size: 30px; font-weight: 800; color: #22D07A">[SỐ]</div><div style="font-size: 14px; color: rgba(255,255,255,.62)">chuyên gia &amp; huấn luyện viên</div></div>
+<div><div style="font-size: 30px; font-weight: 800; color: #2DD4BF">[SỐ]%</div><div style="font-size: 14px; color: rgba(255,255,255,.62)">hoàn thành lộ trình</div></div>
+</div>
+</div>
+<!-- Ảnh chân dung trong khung viền sáng -->
+<div class="heroR rise" style="animation-delay: .5s; position: relative; height: 620px; display: flex; align-items: center; justify-content: center">
+<div aria-hidden="true" style="position: absolute; inset: 8% 4%; border-radius: 50%; background: radial-gradient(closest-side, rgba(34,208,122,.4), transparent); filter: blur(40px)"></div>
+<div class="pframe" style="border-radius: 36px; position: relative; width: 390px; height: 520px; z-index: 2; box-shadow: 0 50px 100px -30px rgba(0,0,0,.8)">
+<div class="pinner" style="border-radius: 33px">
+<img alt="Chân dung Phạm Huyền, người sáng lập huyen8386.vn" src="hero.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block"/>
+</div>
+</div>
+<div class="bob1" style="position: absolute; top: 10px; left: -20px; z-index: 4; padding: 12px 16px; border-radius: 18px; background: rgba(12,30,20,.85); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(14px); box-shadow: 0 20px 40px -15px rgba(0,0,0,.6); display: flex; align-items: center; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 11px; background: rgba(200,245,96,.15); color: #C8F560; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></span>
+<div><div style="font-size: 12px; color: rgba(255,255,255,.6)">Giấc ngủ</div><div style="font-size: 15px; font-weight: 700; white-space: nowrap">Ngủ sâu, dậy tỉnh</div></div>
+</div>
+<div class="bob2" style="position: absolute; top: 300px; right: -40px; z-index: 4; padding: 12px 16px; border-radius: 18px; background: rgba(12,30,20,.85); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(14px); box-shadow: 0 20px 40px -15px rgba(0,0,0,.6); display: flex; align-items: center; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 11px; background: rgba(34,208,122,.15); color: #22D07A; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14z"></path><path d="M5 19l7-7"></path></svg></span>
+<div><div style="font-size: 12px; color: rgba(255,255,255,.6)">Dinh dưỡng</div><div style="font-size: 15px; font-weight: 700; white-space: nowrap">Ăn đúng, đủ năng lượng</div></div>
+</div>
+<div class="bob3" style="position: absolute; bottom: 20px; left: -30px; z-index: 4; padding: 12px 16px; border-radius: 18px; background: rgba(12,30,20,.85); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(14px); box-shadow: 0 20px 40px -15px rgba(0,0,0,.6); display: flex; align-items: center; gap: 12px">
+<span style="width: 36px; height: 36px; border-radius: 11px; background: rgba(45,212,191,.15); color: #2DD4BF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg></span>
+<div><div style="font-size: 12px; color: rgba(255,255,255,.6)">Vận động</div><div style="font-size: 15px; font-weight: 700; white-space: nowrap">30 phút mỗi ngày</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= MARQUEE ================= -->
+<div class="marqBox" style="position: relative; z-index: 2; padding: 26px 0; background: #C8F560; color: #05160D; transform: rotate(-1.5deg); margin: 0 -20px">
+<div class="marq" style="gap: 48px; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap">
+
+<span style="display: flex; align-items: center; gap: 48px">Dinh dưỡng<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Giấc ngủ<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Vận động<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Tâm trí<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Tầm soát định kỳ<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Thói quen tốt<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Dinh dưỡng<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Giấc ngủ<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Vận động<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Tâm trí<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Tầm soát định kỳ<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+<span style="display: flex; align-items: center; gap: 48px">Thói quen tốt<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2l2.4 7.6H22l-6.2 4.6 2.4 7.6L12 17.2l-6.2 4.6 2.4-7.6L2 9.6h7.6z"></path></svg></span>
+
+</div>
+</div>
+<!-- ================= BỊ ĐỘNG vs CHỦ ĐỘNG ================= -->
+<section class="padM" id="phuong-phap" style="position: relative; z-index: 2; padding: 150px 40px 120px">
+<div style="max-width: 1240px; margin: 0 auto">
+<div class="rv" style="max-width: 900px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #22D07A; text-transform: uppercase; margin-bottom: 18px">Tư duy mới về sức khỏe</div>
+<h2 class="h2M" style="margin: 0; font-size: 58px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Y học truyền thống chờ bệnh xuất hiện. <span class="outline">Chúng ta</span> <span class="shine">đi trước một bước.</span></h2>
+</div>
+<div class="rs" style="margin-top: 64px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div class="card rv" style="padding: 44px">
+<div style="font-size: 15px; font-weight: 600; color: rgba(255,255,255,.55); margin-bottom: 22px">CHĂM SÓC BỊ ĐỘNG</div>
+<div style="display: flex; flex-direction: column; gap: 18px; font-size: 18px; color: rgba(255,255,255,.7); line-height: 1.5">
+<div style="display: flex; gap: 14px"><span style="color: rgba(255,255,255,.35)">—</span>Chỉ đi khám khi đã có triệu chứng</div>
+<div style="display: flex; gap: 14px"><span style="color: rgba(255,255,255,.35)">—</span>Mỗi năm khám một lần, rồi quên</div>
+<div style="display: flex; gap: 14px"><span style="color: rgba(255,255,255,.35)">—</span>Lời khuyên chung chung, khó làm theo</div>
+<div style="display: flex; gap: 14px"><span style="color: rgba(255,255,255,.35)">—</span>Tự xoay xở một mình, dễ bỏ cuộc</div>
+</div>
+</div>
+<div class="card rv" style="padding: 44px; background: rgba(34,208,122,.08); border-color: rgba(34,208,122,.35)">
+<div style="font-size: 15px; font-weight: 700; color: #C8F560; margin-bottom: 22px">CHĂM SÓC CHỦ ĐỘNG</div>
+<div style="display: flex; flex-direction: column; gap: 18px; font-size: 18px; line-height: 1.5">
+
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center; margin-top: 1px"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>Theo dõi chỉ số cơ thể trước khi có triệu chứng</div>
+
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center; margin-top: 1px"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>Kế hoạch cá nhân hóa theo thể trạng của bạn</div>
+
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center; margin-top: 1px"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>Thói quen nhỏ, dễ làm, đo được tiến bộ</div>
+
+<div style="display: flex; gap: 14px; align-items: flex-start"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center; margin-top: 1px"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>Có chuyên gia và cộng đồng đồng hành</div>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= NGƯỜI ĐỒNG HÀNH ================= -->
+<section class="padM" id="nguoi-dong-hanh" style="position: relative; z-index: 2; padding: 40px 40px 150px">
+<div aria-hidden="true" class="orb orbC" style="width: 460px; height: 460px; background: #22D07A; top: 120px; left: 20%; opacity: .22"></div>
+<div class="rs" style="position: relative; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center">
+<div class="rv" style="position: relative">
+<div class="pframe" style="border-radius: 36px; height: 680px">
+<div class="pinner" style="border-radius: 33px">
+<img alt="Phạm Huyền trong bộ vest xanh, tay cầm bó hoa" src="founder.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block"/>
+</div>
+</div>
+<div class="bob1" style="position: absolute; right: -24px; bottom: 48px; z-index: 4; padding: 14px 20px; border-radius: 18px; background: #C8F560; color: #05160D; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 10px; box-shadow: 0 20px 50px -15px rgba(200,245,96,.6)">
+<span style="position: relative; width: 10px; height: 10px"><span class="ping" style="background: #05160D"></span><span style="position: absolute; inset: 0; border-radius: 50%; background: #05160D"></span></span>
+          Đồng hành cùng bạn mỗi ngày
+        </div>
+</div>
+<div class="rv" style="display: flex; flex-direction: column; gap: 26px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #22D07A; text-transform: uppercase">Người đồng hành</div>
+<h2 class="h2M" style="margin: 0; font-size: 60px; line-height: 1.05; font-weight: 800; letter-spacing: -0.035em">Xin chào, mình là<br/><span class="shine">Phạm Huyền</span></h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.7; color: rgba(255,255,255,.72)">Mình tin rằng sức khỏe không đến từ may mắn, mà từ những lựa chọn nhỏ mỗi ngày. huyen8386.vn là nơi mình chia sẻ cách sống chủ động và đồng hành cùng bạn từng bước, đến khi những thói quen tốt trở thành nếp sống.</p>
+<blockquote style="margin: 0; padding: 22px 26px; border-radius: 22px; background: rgba(34,208,122,.08); border: 1px solid rgba(34,208,122,.3); font-size: 21px; line-height: 1.55; font-weight: 600">“Đầu tư cho sức khỏe hôm nay là món quà lớn nhất bạn dành cho chính mình và gia đình ngày mai.”</blockquote>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 17px">
+<div style="display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>[Số năm] năm kinh nghiệm trong lĩnh vực chăm sóc sức khỏe</div>
+<div style="display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>[Chứng chỉ / danh hiệu nổi bật]</div>
+<div style="display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 26px; height: 26px; border-radius: 8px; background: #22D07A; color: #05160D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="15"><path d="M5 12l4 4 10-10"></path></svg></span>Đã đồng hành cùng [SỐ]+ khách hàng và gia đình</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; padding-top: 6px">
+<a class="btn btnP" href="#dang-ky">Trò chuyện cùng Huyền
+            <svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5 TRỤ CỘT ================= -->
+<section class="padM" id="tru-cot" style="position: relative; z-index: 2; padding: 60px 40px 140px">
+<div aria-hidden="true" class="orb orbB" style="width: 420px; height: 420px; background: #2DD4BF; top: 200px; left: -200px; opacity: .22"></div>
+<div style="position: relative; max-width: 1240px; margin: 0 auto">
+<div class="rv rs" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 56px">
+<h2 class="h2M" style="margin: 0; font-size: 58px; line-height: 1.08; font-weight: 800; letter-spacing: -0.03em; max-width: 680px">5 trụ cột của một<br/><span class="shine">cơ thể khỏe bền vững</span></h2>
+<p style="margin: 0; max-width: 400px; font-size: 18px; line-height: 1.65; color: rgba(255,255,255,.65)">Không có “viên thuốc thần”. Sức khỏe là tổng của những lựa chọn nhỏ, lặp lại đủ lâu ở cả năm mặt này.</p>
+</div>
+<div class="rs" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px">
+
+<article class="card rv" style="padding: 36px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; grid-column: span 3">
+<div aria-hidden="true" class="big" style="position: absolute; right: -30px; bottom: -40px; font-size: 220px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.035)">01</div>
+<div class="ico" style="width: 60px; height: 60px; border-radius: 18px; background: rgba(255,255,255,.07); color: #22D07A; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28"><path d="M5 19c8 0 14-6 14-14-8 0-14 6-14 14z"></path><path d="M5 19l7-7"></path></svg>
+
+
+
+
+</div>
+<div style="position: relative">
+<h3 style="margin: 0 0 12px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em">Dinh dưỡng</h3>
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,.65)">Ăn đúng cho cơ thể của bạn: đủ chất, đúng giờ, không ăn kiêng khắc nghiệt.</p>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.85)">Tìm hiểu thêm <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</article>
+
+<article class="card rv" style="padding: 36px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; grid-column: span 3">
+<div aria-hidden="true" class="big" style="position: absolute; right: -30px; bottom: -40px; font-size: 220px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.035)">02</div>
+<div class="ico" style="width: 60px; height: 60px; border-radius: 18px; background: rgba(255,255,255,.07); color: #C8F560; display: flex; align-items: center; justify-content: center">
+
+<svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>
+
+
+
+</div>
+<div style="position: relative">
+<h3 style="margin: 0 0 12px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em">Giấc ngủ</h3>
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,.65)">Ngủ sâu để phục hồi: giờ giấc đều, phòng ngủ chuẩn, buổi tối nhẹ nhàng.</p>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.85)">Tìm hiểu thêm <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</article>
+
+<article class="card rv" style="padding: 36px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; grid-column: span 2">
+<div aria-hidden="true" class="big" style="position: absolute; right: -30px; bottom: -40px; font-size: 220px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.035)">03</div>
+<div class="ico" style="width: 60px; height: 60px; border-radius: 18px; background: rgba(255,255,255,.07); color: #2DD4BF; display: flex; align-items: center; justify-content: center">
+
+
+<svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg>
+
+
+</div>
+<div style="position: relative">
+<h3 style="margin: 0 0 12px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em">Vận động</h3>
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,.65)">Đi bộ, sức mạnh và độ dẻo: vừa sức, đều đặn, phù hợp lịch bận rộn.</p>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.85)">Tìm hiểu thêm <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</article>
+
+<article class="card rv" style="padding: 36px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; grid-column: span 2">
+<div aria-hidden="true" class="big" style="position: absolute; right: -30px; bottom: -40px; font-size: 220px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.035)">04</div>
+<div class="ico" style="width: 60px; height: 60px; border-radius: 18px; background: rgba(255,255,255,.07); color: #C8F560; display: flex; align-items: center; justify-content: center">
+
+
+
+<svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28"><circle cx="12" cy="12" r="9"></circle><path d="M8 14c1.2 1.3 2.5 2 4 2s2.8-.7 4-2"></path><path d="M9 9h.01M15 9h.01"></path></svg>
+
+</div>
+<div style="position: relative">
+<h3 style="margin: 0 0 12px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em">Tâm trí</h3>
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,.65)">Nhận diện căng thẳng sớm và có công cụ để cân bằng lại mỗi ngày.</p>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.85)">Tìm hiểu thêm <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</article>
+
+<article class="card rv" style="padding: 36px; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; grid-column: span 2">
+<div aria-hidden="true" class="big" style="position: absolute; right: -30px; bottom: -40px; font-size: 220px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.035)">05</div>
+<div class="ico" style="width: 60px; height: 60px; border-radius: 18px; background: rgba(255,255,255,.07); color: #22D07A; display: flex; align-items: center; justify-content: center">
+
+
+
+
+<svg aria-hidden="true" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
+</div>
+<div style="position: relative">
+<h3 style="margin: 0 0 12px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em">Tầm soát</h3>
+<p style="margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,.65)">Khám định kỳ và theo dõi chỉ số để phát hiện sớm, xử lý kịp thời.</p>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.85)">Tìm hiểu thêm <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+<!-- ================= CỘNG ĐỒNG ================= -->
+<section class="padM" id="cong-dong" style="position: relative; z-index: 2; padding: 20px 40px 150px">
+<div class="rs" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 72px; align-items: center">
+<div class="rv" style="display: flex; flex-direction: column; gap: 24px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #2DD4BF; text-transform: uppercase">Cộng đồng &amp; sự kiện</div>
+<h2 class="h2M" style="margin: 0; font-size: 56px; line-height: 1.08; font-weight: 800; letter-spacing: -0.03em">Không ngừng học hỏi, <span class="shine">lan tỏa lối sống khỏe</span></h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.7)">Huyền thường xuyên tham gia các hội thảo, sự kiện sức khỏe trong và ngoài nước để cập nhật kiến thức mới, rồi mang những điều hay nhất về chia sẻ với cộng đồng.</p>
+<div class="rs" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="padding: 22px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1)"><div style="font-size: 32px; font-weight: 900; color: #C8F560">[SỐ]+</div><div style="font-size: 15px; color: rgba(255,255,255,.65)">sự kiện đã tham gia</div></div>
+<div style="padding: 22px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1)"><div style="font-size: 32px; font-weight: 900; color: #2DD4BF">[SỐ]</div><div style="font-size: 15px; color: rgba(255,255,255,.65)">quốc gia đã đến</div></div>
+</div>
+</div>
+<div class="rv" style="position: relative">
+<div class="pframe" style="border-radius: 36px; height: 620px">
+<div class="pinner" style="border-radius: 33px">
+<img alt="Phạm Huyền tại một sự kiện sức khỏe quốc tế" src="event.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block"/>
+</div>
+</div>
+<div style="position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 4; padding: 14px 18px; border-radius: 18px; background: rgba(12,30,20,.82); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(14px); font-size: 15px; font-weight: 600">Sự kiện sức khỏe quốc tế · [Địa điểm, năm]</div>
+</div>
+</div>
+</section>
+<!-- ================= QUY TRÌNH 4 BƯỚC ================= -->
+<section class="padM" style="position: relative; z-index: 2; padding: 130px 40px; background: #F1FAF4; color: #141414">
+<div style="max-width: 1240px; margin: 0 auto">
+<div class="rv" style="text-align: center; max-width: 780px; margin: 0 auto 70px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #15803D; text-transform: uppercase; margin-bottom: 18px">Lộ trình đồng hành</div>
+<h2 class="h2M" style="margin: 0; font-size: 58px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">4 bước để bạn làm chủ sức khỏe của mình</h2>
+</div>
+<div class="rs" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid rgba(0,0,0,.12); border-radius: 28px; overflow: hidden">
+
+<div class="step rv" style="padding: 40px 32px 44px; border-right: 1px solid rgba(0,0,0,.12); min-height: 340px; display: flex; flex-direction: column; gap: 20px">
+<div class="num" style="font-size: 72px; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px #141414">01</div>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Đánh giá</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4A4A">Bảng câu hỏi và các chỉ số cơ bản giúp vẽ ra bức tranh sức khỏe hiện tại.</p>
+</div>
+
+<div class="step rv" style="padding: 40px 32px 44px; border-right: 1px solid rgba(0,0,0,.12); min-height: 340px; display: flex; flex-direction: column; gap: 20px">
+<div class="num" style="font-size: 72px; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px #141414">02</div>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Hiểu cơ thể</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4A4A">Giải thích rõ ràng từng chỉ số: điều gì ổn, điều gì cần chú ý.</p>
+</div>
+
+<div class="step rv" style="padding: 40px 32px 44px; border-right: 1px solid rgba(0,0,0,.12); min-height: 340px; display: flex; flex-direction: column; gap: 20px">
+<div class="num" style="font-size: 72px; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px #141414">03</div>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Kế hoạch riêng</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4A4A">Lộ trình cá nhân hóa về ăn, ngủ, vận động và tâm trí.</p>
+</div>
+
+<div class="step rv" style="padding: 40px 32px 44px; border-right: 1px solid rgba(0,0,0,.12); min-height: 340px; display: flex; flex-direction: column; gap: 20px">
+<div class="num" style="font-size: 72px; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px #141414">04</div>
+<h3 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -0.02em">Đồng hành</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A4A4A">Nhắc nhở, đo lường và điều chỉnh mỗi tuần đến khi thành thói quen.</p>
+</div>
+
+</div>
+</div>
+</section>
+<!-- ================= TỰ KIỂM TRA ================= -->
+<section class="padM" id="kiem-tra" style="position: relative; z-index: 2; padding: 140px 40px">
+<div aria-hidden="true" class="orb orbA" style="width: 500px; height: 500px; background: #22D07A; top: 120px; right: -200px; opacity: .3"></div>
+<div class="rs" style="position: relative; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: start">
+<div class="rv" style="display: flex; flex-direction: column; gap: 24px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #22D07A; text-transform: uppercase">Tự kiểm tra 30 giây</div>
+<h2 class="h2M" style="margin: 0; font-size: 54px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Bạn đang sống <span class="shine">chủ động</span> đến đâu?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: rgba(255,255,255,.65)">Chọn những thói quen bạn đang duy trì đều đặn. Kết quả hiện ngay bên dưới.</p>
+<div style="margin-top: 10px; padding: 32px; border-radius: 28px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1)">
+<div style="display: flex; align-items: baseline; gap: 10px">
+<span id="qScore" style="font-size: 88px; font-weight: 900; line-height: 1; color: #2DD4BF">0</span>
+<span style="font-size: 24px; font-weight: 600; color: rgba(255,255,255,.5)">/ 6</span>
+</div>
+<div style="margin: 20px 0 16px; height: 12px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden">
+<div id="qBar" style="height: 100%; width: 0%; border-radius: 999px; background: #2DD4BF; transition: width .6s cubic-bezier(.2,.8,.2,1), background .6s"></div>
+</div>
+<div id="qVerdict" style="font-size: 20px; font-weight: 700; margin-bottom: 6px">Cơ thể đang cần bạn quan tâm hơn</div>
+<div id="qAdvice" style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.62)">Bắt đầu từ một thói quen nhỏ nhất. Lộ trình 21 ngày sẽ giúp bạn có điểm tựa.</div>
+</div>
+<p style="margin: 0; font-size: 13px; color: rgba(255,255,255,.5)">Bài kiểm tra mang tính tham khảo, không thay thế chẩn đoán của bác sĩ.</p>
+</div>
+<div class="rv" style="display: flex; flex-direction: column; gap: 12px">
+
+<button aria-pressed="false" class="hab" data-hab="0" type="button">
+<span class="tick"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="16"><path d="M5 12l4 4 10-10"></path></svg></span>
+<span>Ngủ đủ 7–8 tiếng và đi ngủ trước 23h</span>
+</button>
+
+<button aria-pressed="false" class="hab" data-hab="1" type="button">
+<span class="tick"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="16"><path d="M5 12l4 4 10-10"></path></svg></span>
+<span>Vận động ít nhất 30 phút mỗi ngày</span>
+</button>
+
+<button aria-pressed="false" class="hab" data-hab="2" type="button">
+<span class="tick"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="16"><path d="M5 12l4 4 10-10"></path></svg></span>
+<span>Ăn nhiều rau, hạn chế đồ chiên và nước ngọt</span>
+</button>
+
+<button aria-pressed="false" class="hab" data-hab="3" type="button">
+<span class="tick"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="16"><path d="M5 12l4 4 10-10"></path></svg></span>
+<span>Uống đủ nước trong ngày</span>
+</button>
+
+<button aria-pressed="false" class="hab" data-hab="4" type="button">
+<span class="tick"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="16"><path d="M5 12l4 4 10-10"></path></svg></span>
+<span>Có cách giải tỏa căng thẳng (thiền, đi bộ, trò chuyện…)</span>
+</button>
+
+<button aria-pressed="false" class="hab" data-hab="5" type="button">
+<span class="tick"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="16"><path d="M5 12l4 4 10-10"></path></svg></span>
+<span>Khám sức khỏe định kỳ ít nhất 1 lần/năm</span>
+</button>
+
+</div>
+</div>
+</section>
+<!-- ================= TẦM NHÌN ================= -->
+<section class="padM" style="position: relative; z-index: 2; padding: 20px 40px 150px">
+<div class="rv rs" style="position: relative; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03)">
+<div class="photo" style="position: relative; min-height: 560px; overflow: hidden">
+<img alt="Phạm Huyền trên khoang máy bay riêng" src="lifestyle.webp" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; display: block"/>
+</div>
+<div style="padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; gap: 24px">
+<div style="font-size: 14px; font-weight: 700; letter-spacing: .18em; color: #C8F560; text-transform: uppercase">Tầm nhìn</div>
+<h2 class="h2M" style="margin: 0; font-size: 50px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Sức khỏe là <span class="shine">tấm vé hạng nhất</span> cho một cuộc sống tự do.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.7)">Khi cơ thể khỏe mạnh, bạn có năng lượng để làm việc, đi xa, chăm lo cho gia đình và tận hưởng những điều mình yêu thích. Đó là đích đến của mọi lộ trình tại huyen8386.vn.</p>
+<a class="btn btnG" href="#chuong-trinh" style="align-self: flex-start">Xem các lộ trình</a>
+</div>
+</div>
+</section>
+<!-- ================= CHƯƠNG TRÌNH ================= -->
+<section class="padM" id="chuong-trinh" style="position: relative; z-index: 2; padding: 60px 40px 140px">
+<div style="max-width: 1240px; margin: 0 auto">
+<div class="rv" style="text-align: center; margin-bottom: 64px">
+<h2 class="h2M" style="margin: 0; font-size: 58px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Chọn lộ trình <span class="shine">phù hợp với bạn</span></h2>
+</div>
+<div class="rs" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch">
+
+<div class="tier rv" style="position: relative; padding: 40px 34px; border-radius: 30px; background: rgba(255,255,255,.04); color: #FFFFFF; border: 1px solid rgba(255,255,255,.12); display: flex; flex-direction: column; gap: 22px">
+
+<div style="font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .75">Khởi động</div>
+<h3 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em">Thử thách 21 ngày</h3>
+<div style="font-size: 40px; font-weight: 900; letter-spacing: -0.03em">[GIÁ]<span style="font-size: 16px; font-weight: 500; opacity: .7"> / khóa</span></div>
+<div style="display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Bài đánh giá sức khỏe ban đầu</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Lộ trình 21 ngày xây thói quen</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Nhóm cộng đồng hỗ trợ</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Tài liệu thực đơn &amp; bài tập</div>
+
+</div>
+<a class="btn" href="#dang-ky" style="justify-content: center; background: rgba(255,255,255,.1); color: #FFFFFF">Bắt đầu ngay</a>
+</div>
+
+<div class="tier rv" style="position: relative; padding: 40px 34px; border-radius: 30px; background: #C8F560; color: #05160D; border: 1px solid #C8F560; display: flex; flex-direction: column; gap: 22px">
+
+<span style="position: absolute; top: 22px; right: 22px; padding: 6px 14px; border-radius: 999px; background: #05160D; color: #C8F560; font-size: 13px; font-weight: 700">Phổ biến nhất</span>
+
+<div style="font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .75">Đồng hành</div>
+<h3 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em">Lộ trình 90 ngày</h3>
+<div style="font-size: 40px; font-weight: 900; letter-spacing: -0.03em">[GIÁ]<span style="font-size: 16px; font-weight: 500; opacity: .7"> / 3 tháng</span></div>
+<div style="display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Mọi quyền lợi gói 21 ngày</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Kế hoạch cá nhân hóa</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Theo dõi chỉ số mỗi tuần</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Buổi tư vấn nhóm hằng tháng</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Điều chỉnh lộ trình theo tiến bộ</div>
+
+</div>
+<a class="btn" href="#dang-ky" style="justify-content: center; background: #05160D; color: #C8F560">Bắt đầu ngay</a>
+</div>
+
+<div class="tier rv" style="position: relative; padding: 40px 34px; border-radius: 30px; background: rgba(45,212,191,.08); color: #FFFFFF; border: 1px solid rgba(45,212,191,.45); display: flex; flex-direction: column; gap: 22px">
+
+<div style="font-size: 15px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .75">Cao cấp</div>
+<h3 style="margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em">Kèm 1–1 với chuyên gia</h3>
+<div style="font-size: 40px; font-weight: 900; letter-spacing: -0.03em">[GIÁ]<span style="font-size: 16px; font-weight: 500; opacity: .7"> / 6 tháng</span></div>
+<div style="display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Mọi quyền lợi gói 90 ngày</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Chuyên gia riêng theo sát</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Gọi video tư vấn 1–1</div>
+
+<div style="display: flex; gap: 12px; font-size: 16px; line-height: 1.5"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" style="flex: none; margin-top: 2px" viewbox="0 0 24 24" width="20"><path d="M5 12l4 4 10-10"></path></svg>Hỗ trợ cả gia đình</div>
+
+</div>
+<a class="btn" href="#dang-ky" style="justify-content: center; background: #2DD4BF; color: #05160D">Bắt đầu ngay</a>
+</div>
+
+</div>
+</div>
+</section>
+<!-- ================= KIẾN THỨC ================= -->
+<section class="padM" id="kien-thuc" style="position: relative; z-index: 2; padding: 40px 40px 140px">
+<div style="max-width: 1240px; margin: 0 auto">
+<div class="rv rs" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px">
+<h2 class="h2M" style="margin: 0; font-size: 52px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Kiến thức sống khỏe<br/>mỗi tuần</h2>
+<a class="btn btnG" href="#kien-thuc">Xem tất cả bài viết</a>
+</div>
+<div class="rs" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px">
+
+<a class="card rv" href="#kien-thuc" style="display: flex; flex-direction: column; color: #fff">
+<div style="position: relative; height: 220px; background: #C8F560; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<div aria-hidden="true" class="big" style="font-size: 150px; font-weight: 900; letter-spacing: -0.05em; color: rgba(5,22,13,.85)">Zz</div>
+</div>
+<div style="padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; color: #C8F560; text-transform: uppercase">Giấc ngủ</div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.35; font-weight: 700">Ngủ đủ 7 tiếng vẫn mệt: những nguyên nhân thường gặp</h3>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.8)">Đọc bài <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</a>
+
+<a class="card rv" href="#kien-thuc" style="display: flex; flex-direction: column; color: #fff">
+<div style="position: relative; height: 220px; background: #22D07A; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<div aria-hidden="true" class="big" style="font-size: 150px; font-weight: 900; letter-spacing: -0.05em; color: rgba(5,22,13,.85)">5’</div>
+</div>
+<div style="padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; color: #C8F560; text-transform: uppercase">Dinh dưỡng</div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.35; font-weight: 700">Bữa sáng 5 phút cho người bận rộn mà vẫn đủ chất</h3>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.8)">Đọc bài <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</a>
+
+<a class="card rv" href="#kien-thuc" style="display: flex; flex-direction: column; color: #fff">
+<div style="position: relative; height: 220px; background: #2DD4BF; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<div aria-hidden="true" class="big" style="font-size: 150px; font-weight: 900; letter-spacing: -0.05em; color: rgba(5,22,13,.85)">05</div>
+</div>
+<div style="padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; color: #C8F560; text-transform: uppercase">Tâm trí</div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.35; font-weight: 700">5 dấu hiệu cơ thể đang nhắc bạn cần nghỉ ngơi</h3>
+<span class="more" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.8)">Đọc bài <svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="16"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</a>
+
+</div>
+</div>
+</section>
+<!-- ================= FAQ ================= -->
+<section class="padM" style="position: relative; z-index: 2; padding: 40px 40px 130px">
+<div class="rs" style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 60px">
+<div class="rv" style="display: flex; flex-direction: column; gap: 28px">
+<h2 class="h2M" style="margin: 0; font-size: 52px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Câu hỏi<br/><span class="shine">thường gặp</span></h2>
+<div style="position: relative">
+<div class="pframe" style="border-radius: 30px; height: 420px">
+<div class="pinner" style="border-radius: 27px">
+<img alt="Phạm Huyền trong một ngày làm việc" src="daily.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block"/>
+</div>
+</div>
+<div style="position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 4; padding: 12px 16px; border-radius: 16px; background: rgba(12,30,20,.82); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(14px); font-size: 15px; font-weight: 600">Chưa thấy câu trả lời? <a href="#dang-ky">Nhắn trực tiếp cho Huyền</a></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+
+<details class="rv" style="border-radius: 22px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); padding: 0 28px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 76px; font-size: 19px; font-weight: 600">Chăm sóc sức khỏe chủ động là gì?<span class="pl" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: rgba(200,245,96,.14); color: #C8F560; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0 0 26px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,.68)">Là chủ động theo dõi, hiểu và cải thiện sức khỏe mỗi ngày qua dinh dưỡng, giấc ngủ, vận động, tâm trí và tầm soát định kỳ, thay vì chỉ đi khám khi đã có bệnh.</p>
+</details>
+
+<details class="rv" style="border-radius: 22px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); padding: 0 28px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 76px; font-size: 19px; font-weight: 600">Tôi rất bận, có theo được không?<span class="pl" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: rgba(200,245,96,.14); color: #C8F560; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0 0 26px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,.68)">Lộ trình được thiết kế từ những thói quen nhỏ, mỗi ngày chỉ cần 15–30 phút, và được điều chỉnh theo lịch sinh hoạt của bạn.</p>
+</details>
+
+<details class="rv" style="border-radius: 22px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); padding: 0 28px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 76px; font-size: 19px; font-weight: 600">Chương trình có thay thế bác sĩ không?<span class="pl" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: rgba(200,245,96,.14); color: #C8F560; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0 0 26px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,.68)">Không. Chúng tôi đồng hành về lối sống và thói quen. Khi có vấn đề bệnh lý, bạn cần được bác sĩ thăm khám và điều trị.</p>
+</details>
+
+<details class="rv" style="border-radius: 22px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); padding: 0 28px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 76px; font-size: 19px; font-weight: 600">Tôi bắt đầu từ đâu?<span class="pl" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: rgba(200,245,96,.14); color: #C8F560; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M12 5v14M5 12h14"></path></svg></span></summary>
+<p style="margin: 0 0 26px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,.68)">Hãy làm bài tự kiểm tra ở trên, rồi để lại thông tin để được tư vấn miễn phí và chọn lộ trình phù hợp.</p>
+</details>
+
+</div>
+</div>
+</section>
+<!-- ================= ĐĂNG KÝ ================= -->
+<section class="padM" id="dang-ky" style="position: relative; z-index: 2; padding: 0 40px 120px">
+<div style="position: relative; max-width: 1240px; margin: 0 auto; border-radius: 40px; overflow: hidden; background: #22D07A; color: #05160D">
+<div aria-hidden="true" class="orb orbA" style="width: 480px; height: 480px; background: #C8F560; top: -160px; right: -100px; opacity: .9; filter: blur(90px)"></div>
+<div aria-hidden="true" class="orb orbB" style="width: 380px; height: 380px; background: #2DD4BF; bottom: -180px; left: -60px; opacity: .7; filter: blur(90px)"></div>
+<div class="rs" style="position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 50px; padding: 72px 64px; align-items: center">
+<div class="rv">
+<h2 class="h2M" style="margin: 0 0 20px; font-size: 56px; line-height: 1.05; font-weight: 900; letter-spacing: -0.035em">Bắt đầu sống chủ động từ hôm nay.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; font-weight: 500; color: rgba(5,22,13,.8)">Để lại thông tin, chuyên gia sẽ gọi điện tư vấn miễn phí 15 phút và gợi ý lộ trình phù hợp với bạn.</p>
+</div>
+<div class="rv" style="padding: 34px; border-radius: 28px; background: #06120C; color: #fff">
+<div id="formWrap">
+<form id="regForm" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="f-name" style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,.75)">Họ và tên</label>
+<input class="fld" id="f-name" placeholder="Nguyễn Văn A" required="" type="text"/>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="f-phone" style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,.75)">Số điện thoại / Zalo</label>
+<input class="fld" id="f-phone" placeholder="09xx xxx xxx" required="" type="tel"/>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="f-goal" style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,.75)">Mục tiêu của bạn</label>
+<select class="fld" id="f-goal">
+<option>Ngủ ngon hơn</option>
+<option>Giảm cân, ăn uống khoa học</option>
+<option>Tăng năng lượng, bớt mệt mỏi</option>
+<option>Giảm căng thẳng</option>
+<option>Phòng bệnh cho cả gia đình</option>
+</select>
+</div>
+<button class="btn btnP" style="justify-content: center; margin-top: 6px" type="submit">Nhận tư vấn miễn phí
+                <svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</button>
+</form>
+</div>
+<div hidden="" id="thanks">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; padding: 40px 10px">
+<span class="pulse" style="width: 72px; height: 72px; border-radius: 50%; background: #C8F560; color: #05160D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" fill="none" height="34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="34"><path d="M5 12l4 4 10-10"></path></svg></span>
+<div style="font-size: 24px; font-weight: 800">Cảm ơn bạn đã đăng ký!</div>
+<div style="font-size: 16px; color: rgba(255,255,255,.7)">Chúng tôi sẽ liên hệ với bạn sớm.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer class="padM" style="position: relative; z-index: 2; padding: 0 40px 50px">
+<div style="max-width: 1240px; margin: 0 auto">
+<div aria-hidden="true" style="font-size: 170px; font-weight: 900; letter-spacing: -0.05em; line-height: 1.05; white-space: nowrap; overflow: hidden"><span class="outline">huyen8386</span><span class="shine">.vn</span></div>
+<div class="rs" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 14px; color: rgba(255,255,255,.55)">
+<div>© 2026 huyen8386.vn · [Địa chỉ] · [Hotline]</div>
+<div style="max-width: 520px">Nội dung trên website mang tính tham khảo, không thay thế chẩn đoán và điều trị của bác sĩ.</div>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('root'), glow=document.getElementById('glow'), raf=0, px=0, py=0;
+  root.addEventListener('mousemove',function(e){var r=root.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;
+    if(raf)return;raf=requestAnimationFrame(function(){raf=0;glow.style.left=px+'px';glow.style.top=py+'px';glow.style.opacity=1;});});
+  root.addEventListener('mouseleave',function(){glow.style.opacity=0;});
+  var on=[false,false,false,false,false,false];
+  var sc=document.getElementById('qScore'),bar=document.getElementById('qBar'),vd=document.getElementById('qVerdict'),ad=document.getElementById('qAdvice');
+  function upd(){var n=on.filter(Boolean).length,v,a,c;
+    if(n<=2){v='Cơ thể đang cần bạn quan tâm hơn';a='Bắt đầu từ một thói quen nhỏ nhất. Lộ trình 21 ngày sẽ giúp bạn có điểm tựa.';c='#2DD4BF';}
+    else if(n<=4){v='Bạn đang đi đúng hướng';a='Nền tảng đã có. Đo lường và điều chỉnh đều đặn sẽ giúp bạn tiến xa hơn.';c='#22D07A';}
+    else{v='Bạn đang sống rất chủ động!';a='Tuyệt vời. Hãy duy trì và theo dõi chỉ số định kỳ để giữ phong độ lâu dài.';c='#C8F560';}
+    sc.textContent=n;sc.style.color=c;bar.style.width=Math.round(n/6*100)+'%';bar.style.background=c;vd.textContent=v;ad.textContent=a;}
+  document.querySelectorAll('[data-hab]').forEach(function(b){b.addEventListener('click',function(){var i=+b.getAttribute('data-hab');on[i]=!on[i];
+    b.className=on[i]?'hab habOn':'hab';b.setAttribute('aria-pressed',on[i]);upd();});});
+  var f=document.getElementById('regForm');
+  f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('formWrap').hidden=true;document.getElementById('thanks').hidden=false;});
+})();
+</script>
+</body>
+</html>
